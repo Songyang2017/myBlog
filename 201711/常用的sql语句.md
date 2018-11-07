@@ -79,7 +79,7 @@
 例： 
 	
 	select * from students where students_age = '12' or students_sex = '女'  
-8.根据and和or结合使用查询数据  
+8.根据`and`和`or`结合使用查询数据  
 
 	select * from 表名 where 字段1 = 值1 and (字段2 = 值2 or 字段3 = 值3)  
 例：  
@@ -141,3 +141,33 @@
 例：  
 	
 	select * from students order by student_age desc, student_id asc  
+#### 表与表的关联（关系型数据库，就是将表与表之间建立关联）  
+1.查询两个表的所有数据（如果数据条数不相等，会出现重复数据）  
+
+	select * from 表1, 表2  
+例：  
+
+	select * from gebis, students  
+查询两个表中的某几个字段  
+
+	select 表1.字段1, 表1.字段2, 表2.字段1, 表2.字段2 from 表1, 表2  
+查询两个表中相关联的数据
+内联（inner join）  
+
+	select * from 表名1，表名2 where 表名1.字段 = 表名2.字段  
+	select * from 表名1 inner join 表名2 on 表名1.字段 = 表名2.字段  
+左联（left outer join）  
+显示左表T1中的所有行，并把右表T2中符合条件加到左表T1中；  
+右表T2中不符合条件，就不用加入结果表中，并且NULL表示。  
+					
+	select * from T1 left outer join T2 on T1.字段 = T2.字段  
+右联（right outer join)  
+显示右表T2中的所有行，并把左表T1中符合条件加到右表T2中；  
+左表T1中不符合条件，就不用加入结果表中，并且NULL表示。  
+	
+	select * from T1 right outer join T2 on T1.字段 = T2.字段  
+全联（full join）  
+显示左表T1、右表T2两边中的所有行，即把左联结果表 + 右联结果表组合在一起，然后过滤掉重复的。  
+
+	select * from T1 full join T2 on T1.字段 = T2.字段
+	select * from T1 left outer join T2 on T1.字段 = T2.字段 union select * from T1 right outer join T2 on T1.字段 = T2.字段
