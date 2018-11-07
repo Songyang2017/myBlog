@@ -6,3 +6,8 @@
 例如：  
 
 	create table if not exists gebis(gebi_id int primary KEY AUTO_INCREMENT, gebi_name text, gebi_sex text)
+### 删除表
+	drop table 表名  
+例如：  
+
+	drop table wx
