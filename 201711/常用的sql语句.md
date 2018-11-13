@@ -24,10 +24,10 @@
 #### 删除  
 1.删除一条数据  
 	
-	drop from 表名 where 主键 = 值  
+	delete from 表名 where 主键 = 值  
 例：  
 
-	drop from students where students_id = 3  
+	delete from students where students_id = 3  
 2.删除全部
 
 	drop from 表名  
